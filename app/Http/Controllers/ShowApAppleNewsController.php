@@ -21,7 +21,7 @@ class ShowApAppleNewsController extends Controller
       $fiveDaysAgo = date('Y-m-d', strtotime('-5 days'));
       
       // Update the URL with the dynamic dates
-      $apiKey = '2a587b45eaac4cc5841d59775be2eda1';
+      $apiKey = env('NEWS_API_KEY');
       $url = ("https://newsapi.org/v2/everything?q=apple&from={$fiveDaysAgo}&to={$today}&sortBy=popularity&apiKey={$apiKey}");
 
        

@@ -22,7 +22,7 @@ class FetchNews extends Command
             return;
         }
         
-        $apiKey = '2a587b45eaac4cc5841d59775be2eda1';
+        $apiKey = env('NEWS_API_KEY');
         $today = date('Y-m-d');
         $response = Http::get("https://newsapi.org/v2/everything?q=tesla&from={$today}0&sortBy=publishedAt&apiKey={$apiKey}");
 
