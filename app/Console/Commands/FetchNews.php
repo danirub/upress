@@ -23,7 +23,9 @@ class FetchNews extends Command
         }
         
         $apiKey = '2a587b45eaac4cc5841d59775be2eda1';
-        $response = Http::get("https://newsapi.org/v2/everything?q=tesla&from=2024-09-20&sortBy=publishedAt&apiKey={$apiKey}");
+        $today = date('Y-m-d');
+        $response = Http::get("https://newsapi.org/v2/everything?q=tesla&from={$today}0&sortBy=publishedAt&apiKey={$apiKey}");
+
         // print_r($response);
         if ($response->successful()) {
             $articles = $response->json()['articles'];

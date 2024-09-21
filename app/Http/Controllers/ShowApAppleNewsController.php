@@ -14,7 +14,17 @@ class ShowApAppleNewsController extends Controller
        $client = new Client();
        
        // Define the News API endpoint
-       $url = 'https://newsapi.org/v2/everything?q=apple&from=2024-09-19&to=2024-09-19&sortBy=popularity&apiKey=2a587b45eaac4cc5841d59775be2eda1';
+      // Get today's date in YYYY-MM-DD format
+      $today = date('Y-m-d');
+      
+      // Get the date 5 days ago
+      $fiveDaysAgo = date('Y-m-d', strtotime('-5 days'));
+      
+      // Update the URL with the dynamic dates
+      $apiKey = '2a587b45eaac4cc5841d59775be2eda1';
+      $url = ("https://newsapi.org/v2/everything?q=apple&from={$fiveDaysAgo}&to={$today}&sortBy=popularity&apiKey={$apiKey}");
+
+       
        
        // Send a GET request to the API
        $response = $client->get($url);
