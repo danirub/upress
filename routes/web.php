@@ -18,6 +18,7 @@ use App\Http\Controllers\ShowApAppleNewsController;
 */
 
 Route::get('/', function () {
+    Artisan::call('schedule:run');
     return view('welcome');
 });
 
@@ -30,3 +31,9 @@ require __DIR__.'/auth.php';
 Route::resource('posts', PostController::class);
 
 Route::get('/apple-news', [ShowApAppleNewsController::class, 'index'])->name('apple.news');
+
+Route::get('/trigger-scheduler', function () {
+    Artisan::call('schedule:run');
+    return 'Scheduler triggered!';
+});
+
