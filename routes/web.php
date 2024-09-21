@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\ShowApAppleNewsController;
+
 
 
 /*
@@ -26,3 +28,5 @@ Route::get('/dashboard', function () {
 require __DIR__.'/auth.php';
 
 Route::resource('posts', PostController::class);
+
+Route::get('/apple-news', [ShowApAppleNewsController::class, 'index'])->name('apple.news');

@@ -21,7 +21,9 @@
                         {{ __('Posts') }}
                     </x-nav-link>
                 </div>
-               
+               <x-nav-link :href="route('apple.news')">
+                      {{ __('Apple News') }}
+                  </x-nav-link>
             </div>
 
             <!-- Settings Dropdown -->
